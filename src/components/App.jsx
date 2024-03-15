@@ -1,39 +1,32 @@
-
 import '../scss/App.scss';
 import { useState } from 'react';
 import Header from './Header';
 import Board from './Board';
 
-
 function App() {
   const [positionGrogu, setGrogu] = useState(0);
-  const [cookies, setCookies] = useState(['🍪',  '🍪', '🍪']);
+  const [cookies, setCookies] = useState(['🍪', '🍪', '🍪']);
   const [eggs, setEggs] = useState(['🥚', '🥚', '🥚']);
   const [frogs, setFrogs] = useState(['🐸', '🐸', '🐸']);
   const [diceResult, setDiceResult] = useState('');
   const [stateGame, setStateGame] = useState('');
 
-  const rollDice = () => { 
-    const randomNumber =  Math.floor(Math.random() * 4) + 1;
-    if( randomNumber === 4){
-      setGrogu (positionGrogu + 1)
-    }else if(randomNumber === 1){
-      setCookies(cookies.splice(0, 1))
-    }else if(randomNumber === 2){
-      setEggs(eggs.splice(0, 1))
-    }else 
-    setFrogs(frogs.splice(0, 1))
+  const rollDice = () => {
+    const randomNumber = Math.floor(Math.random() * 4) + 1;
+    if (randomNumber === 4) {
+      setGrogu(positionGrogu + 1);
+    } else if (randomNumber === 1) {
+      setCookies(cookies.splice(0, 1));
+    } else if (randomNumber === 2) {
+      setEggs(eggs.splice(0, 1));
+    } else setFrogs(frogs.splice(0, 1));
+  };
 
-    }
-   
-  }
-  
-  
   return (
     <div>
-      <Header/>
+      <Header />
       <main className="page">
-       <Board/>
+        <Board />
 
         <section>
           <button className="dice">Lanzar Dado</button>
