@@ -12,7 +12,7 @@ function App() {
   const [eggs, setEggs] = useState(['🥚', '🥚', '🥚']);
   const [frogs, setFrogs] = useState(['🐸', '🐸', '🐸']);
   const [diceResult, setDiceResult] = useState('');
-  const [stateGame, setStateGame] = useState('');
+  const [stateGame, setStateGame] = useState('Inicio');
 
   const onChangeSetName = (value) => {
     setName(value);
@@ -60,17 +60,15 @@ function App() {
       setStateGame('Has ganado');
     }
   };
+
   return (
     <div>
       <Header name={name} onChangeSetName={onChangeSetName} />
       <main className="page">
-        <GameStatus />
         <Board positionGrogu={positionGrogu} />
         <div className="game-status">{diceResult}</div>
         <Dice handleDice={rollDice} />
-        <section>
-          <div className="game-status">{stateGame}</div>
-        </section>
+        <GameStatus stateGame={stateGame} />
 
         <section className="goods-container">
           <div className="goods-item">{cookies}</div>
