@@ -12,7 +12,7 @@ function App() {
   const [eggs, setEggs] = useState(['🥚', '🥚', '🥚']);
   const [frogs, setFrogs] = useState(['🐸', '🐸', '🐸']);
   const [diceResult, setDiceResult] = useState('');
-  const [stateGame, setStateGame] = useState('');
+  const [stateGame, setStateGame] = useState('En curso');
 
   const onChangeSetName = (value) => {
     setName(value);
@@ -23,25 +23,27 @@ function App() {
     console.log(randomNumber);
     if (randomNumber === 4) {
       setGrogu(positionGrogu + 1);
-      setStateGame = 'Grogu ha avanzado una casilla';
+      setStateGame('Grogu ha avanzado una casilla');
     } else if (randomNumber === 1) {
       setCookies(cookies.splice(0, 1));
-      setStateGame = 'H';
+      setStateGame('Has ayudado a mando a conseguir una galleta') ;
     } else if (randomNumber === 2) {
       setEggs(eggs.splice(0, 1));
+      setStateGame('Has ayudado a mando a conseguir un huevo') ;
     } else setFrogs(frogs.splice(0, 1));
+    setStateGame('Has ayudado a mando a conseguir una rana') ;
   };
   return (
     <div>
       <Header name={name} onChangeSetName={onChangeSetName} />
       <main className="page">
-        <GameStatus />
+        
         <Board positionGrogu={positionGrogu} />
-        {/* <p>{stateGame}</p> */}
         <Dice handleDice={rollDice} />
         <section>
           <button className="dice">Lanzar Dado</button>
-          <div className="game-status">En curso</div>
+          <GameStatus stateGame={stateGame} />
+          
         </section>
 
         <section className="goods-container">
