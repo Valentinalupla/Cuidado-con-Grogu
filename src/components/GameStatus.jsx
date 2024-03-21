@@ -5,7 +5,7 @@ function GameStatus() {
       <p>{name} has ayudado a Mando a recoger una galleta</p>
       <p>{name} has ayudado a Mando a recoger una galleta</p>
       <p>{name} has ayudado a Mando a recoger una galleta</p> */}
-      <p>Grogu se ha comido el cargamento, has perdido</p>
+      {/* <p>Grogu se ha comido el cargamento, has perdido</p> */}
     </div>
   );
 }

@@ -6,9 +6,14 @@ function Dice({ handleDice }) {
     console.log('hemos hecho click en dado');
   };
   return (
-    <div className="dice" onClick={handleClick}>
-      🎲
-    </div>
+    <>
+      <div className="dice" onClick={handleClick}>
+        🎲
+      </div>
+      <button className="dice" onClick={handleClick}>
+        Lanzar Dado
+      </button>
+    </>
   );
 }
 
