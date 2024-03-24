@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 function GameStatus({ stateGame }) {
   return (
     <>
@@ -5,5 +6,9 @@ function GameStatus({ stateGame }) {
     </>
   );
 }
+
+GameStatus.propTypes = {
+  stateGame: PropTypes.string.isRequired,
+};
 
 export default GameStatus;

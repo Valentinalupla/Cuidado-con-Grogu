@@ -43,7 +43,7 @@ function App() {
 
   useEffect(() => {
     if (positionGrogu === 7) {
-      setStateGame('Has perdido');
+      setStateGame('Has perdido...');
     }
   });
 
@@ -55,19 +55,28 @@ function App() {
 
   useEffect(() => {
     if (cookies.length === 0 && eggs.length === 0 && frogs.length === 0) {
-      setStateGame('Has perdido');
+      setStateGame('Has ganado!!!');
     }
   });
+
+  const handleReset = () => {
+    setName('');
+    setGroguPosition(0);
+    setCookies(['🍪', '🍪', '🍪']);
+    setEggs(['🥚', '🥚', '🥚']);
+    setFrogs(['🐸', '🐸', '🐸']);
+    setDiceResult('');
+    setStateGame('Inicio');
+  };
 
   return (
     <div>
       <Header name={name} onChangeSetName={onChangeSetName} />
       <main className="page">
         <Board positionGrogu={positionGrogu} />
-        <div className="game-status">{diceResult}</div>
+        <div>{diceResult}</div>
         <Dice handleDice={rollDice} />
         <GameStatus stateGame={stateGame} />
-
         <section className="goods-container">
           <div className="goods-item">{cookies}</div>
         </section>
@@ -77,9 +86,10 @@ function App() {
         <section className="goods-container">
           <div className="goods-item">{frogs}</div>
         </section>
-
         <section>
-          <button className="restart-button">Reiniciar Juego</button>
+          <button className="restart-button" onClick={handleReset}>
+            Reiniciar Juego
+          </button>
         </section>
       </main>
     </div>
