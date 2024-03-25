@@ -1,11 +1,11 @@
 import '../scss/components/Header.scss';
-import Form from './Form';
 
-const Header = ({ name, onChangeSetName }) => {
+
+const Header = ({ name }) => {
   return (
     <header className="title">
       <h1>¡Cuidado con Grogu {name}!</h1>
-      <Form onChangeSetName={onChangeSetName} />
+     
     </header>
   );
 };

@@ -4,6 +4,9 @@ import Header from './Header';
 import GameStatus from './GameStatus';
 import Board from './Board';
 import Dice from './Dice';
+import Form from './Form';
+import Footer from './Footer';
+
 
 function App() {
   const [name, setName] = useState('');
@@ -23,27 +26,27 @@ function App() {
     console.log(randomNumber);
     if (randomNumber === 4) {
       setGroguPosition(positionGrogu + 1);
-      setDiceResult('Resultado: 4, Grogu ha avanzado una casilla');
+      setDiceResult(`${name}, Grogu ha avanzado una casilla`);
     }
     if (randomNumber === 1) {
       setCookies(cookies.slice(1));
-      setDiceResult('Resultado: 1, has ayudado a Mando a descargar una galleta');
+      setDiceResult(`${name}, has ayudado a Mando a descargar una galleta`);
     }
 
     if (randomNumber === 2) {
       setEggs(eggs.slice(1));
-      setDiceResult('Resultado: 2, has ayudado a Mando a descargar un huevo');
+      setDiceResult(`${name}, has ayudado a Mando a descargar un huevo`);
     }
 
     if (randomNumber === 3) {
       setFrogs(frogs.slice(1));
-      setDiceResult('Resultado: 3, has ayudado a Mando a descargar una rana');
+      setDiceResult(`${name}, has ayudado a Mando a descargar una rana`);
     }
   };
 
   useEffect(() => {
     if (positionGrogu === 7) {
-      setStateGame('Has perdido...');
+      setStateGame(`${name}Has perdido...`);
     }
   });
 
@@ -72,6 +75,7 @@ function App() {
   return (
     <div>
       <Header name={name} onChangeSetName={onChangeSetName} />
+      <Form onChangeSetName={onChangeSetName} />
       <main className="page">
         <Board positionGrogu={positionGrogu} />
         <div>{diceResult}</div>
@@ -92,6 +96,7 @@ function App() {
           </button>
         </section>
       </main>
+     <Footer />
     </div>
   );
 }
