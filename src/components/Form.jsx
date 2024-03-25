@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 function Form({ name, onChangeSetName }) {
   const handleChangeName = (event) => {
     const valueName = event.target.value;
@@ -11,5 +12,8 @@ function Form({ name, onChangeSetName }) {
     </form>
   );
 }
-
+Form.propTypes = {
+  name: PropTypes.string.isRequired,
+  onChangeSetName: PropTypes.func.isRequired,
+};
 export default Form;

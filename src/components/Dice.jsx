@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types';
 
-function Dice({ handleDice }) {
+function Dice({ handleDice, stateGame }) {
   const handleClick = () => {
     handleDice();
   };
+  const isDisabled = stateGame === 'Has ganado!!!';
 
   return (
     <>
-      <div className="dice" onClick={handleClick}>
+      <button className="dice" onClick={handleClick} disabled={isDisabled}>
         🎲
-      </div>
-      <button className="dice" onClick={handleClick}>
+      </button>
+      <button className="dice" onClick={handleClick} disabled={isDisabled}>
         Lanzar Dado
       </button>
     </>
@@ -20,6 +21,7 @@ function Dice({ handleDice }) {
 Dice.propTypes = {
   handleDice: PropTypes.func.isRequired,
   resultRandomNumber: PropTypes.number,
+  stateGame: PropTypes.string,
 };
 
 export default Dice;

@@ -7,7 +7,6 @@ import Dice from './Dice';
 import Form from './Form';
 import Footer from './Footer';
 
-
 function App() {
   const [name, setName] = useState('');
   const [positionGrogu, setGroguPosition] = useState(0);
@@ -58,6 +57,7 @@ function App() {
 
   useEffect(() => {
     if (cookies.length === 0 && eggs.length === 0 && frogs.length === 0) {
+      setDiceResult('');
       setStateGame('Has ganado!!!');
     }
   });
@@ -79,7 +79,7 @@ function App() {
       <main className="page">
         <Board positionGrogu={positionGrogu} />
         <div>{diceResult}</div>
-        <Dice handleDice={rollDice} />
+        <Dice handleDice={rollDice} stateGame={stateGame} />
         <GameStatus stateGame={stateGame} />
         <section className="goods-container">
           <div className="goods-item">{cookies}</div>
@@ -96,7 +96,7 @@ function App() {
           </button>
         </section>
       </main>
-     <Footer />
+      <Footer />
     </div>
   );
 }
